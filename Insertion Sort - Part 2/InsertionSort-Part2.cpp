@@ -14,26 +14,19 @@ void printarr(int  *ar)
         cout<<ar[i]<<" ";
     cout<<endl;
 }
-
-void insertionSort(int ar_size, int *  ar) {
-    int temp = ar[(ar_size-1)];
-    for(int i= (ar_size-1);i>=0;i--)
-    {
-        if(ar[i-1]>temp)
-        {
-            ar[i] = ar[i-1];
+void insertionSort(int * ar, int ar_size) {
+    for (int i = 1; i < ar_size; i++) {
+        int j = i;
+        int value = ar[i];
+        while (j > 0 && ar[j-1] > value) {
+            ar[j] = ar[j-1];
+            j--;
         }
-        else
-        {
-            ar[i] = temp;
-            break;
-        }
+        ar[j] = value;
+        printarr(ar);
     }
-    printarr(ar);
-
 }
 int main(void) {
-   
     cin >> _ar_size;
     //scanf("%d", &_ar_size);
     int _ar[_ar_size], _ar_i;
@@ -41,12 +34,7 @@ int main(void) {
         cin >> _ar[_ar_i];
         //scanf("%d", &_ar[_ar_i]); 
     }
-    for(int i=2;i<=_ar_size;i++)
-    {
-        insertionSort(i,_ar);        
-    }
-   
-   
+   insertionSort(_ar,_ar_i);           
    return 0;
 }
 
