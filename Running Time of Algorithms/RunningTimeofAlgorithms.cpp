@@ -1,25 +1,22 @@
-#include <cmath>
 #include <cstdio>
-#include <vector>
+#include <cstring>
+#include <string>
+#include <cmath>
+#include <cstdlib>
+#include <cassert>
 #include <iostream>
-#include <algorithm>
 using namespace std;
 int _ar_size,cnt;
-
-void insertionSort(int ar_size, int *  ar) {
-    int temp = ar[(ar_size-1)];
-    for(int i= (ar_size-1);i>=0;i--)
-    {
-        if(ar[i-1]>temp)
-        {
+void insertionSort(int * ar, int ar_size) {
+    for (int i = 1; i < ar_size; i++) {
+        int j = i;
+        int value = ar[i];
+        while (j > 0 && ar[j-1] > value) {
+            ar[j] = ar[j-1];
+            j--;
             cnt++;
-            ar[i] = ar[i-1];
         }
-        else
-        {
-            ar[i] = temp;
-            break;
-        }
+        ar[j] = value;
     }
 }
 int main(void) {
@@ -30,11 +27,7 @@ int main(void) {
         cin >> _ar[_ar_i];
         //scanf("%d", &_ar[_ar_i]); 
     }
-    for(int i=2;i<=_ar_size;i++)
-    {
-        insertionSort(i,_ar);        
-    }
-    cout<<cnt;  
+   insertionSort(_ar,_ar_i);  
+   cout<<cnt;
    return 0;
 }
-
