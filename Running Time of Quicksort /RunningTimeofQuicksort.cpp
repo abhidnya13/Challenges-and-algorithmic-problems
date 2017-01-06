@@ -60,7 +60,6 @@ int main() {
     }
     quicksort(arq,0,n-1);
     insertionSort(ar,n);        
-    
     cout<<cnti-cntq;
     return 0;
 }
